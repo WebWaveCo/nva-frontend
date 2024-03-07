@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background-color: #f5f5f5">
     <v-overlay :value="loading">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
@@ -8,15 +8,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-  name: 'App',
+  name: "App",
   computed: {
-    ...mapState(['loading']),
+    ...mapState(["loading"]),
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
