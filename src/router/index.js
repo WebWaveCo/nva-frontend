@@ -3,8 +3,7 @@ import VueRouter from "vue-router";
 import store from "@/store";
 // Dashboard
 import Dashboard from "../views/Dashboard.vue";
-import Main from "@/components/dasboard/Main.vue";
-import Profile from "@/components/config/Profile.vue";
+import Profile from "@/components/users/Profile.vue";
 
 // auth
 import Login from "@/views/Login.vue";
@@ -17,12 +16,6 @@ const routes = [
     name: "Home",
     component: Dashboard,
     children: [
-      {
-        path: "/dashboard",
-        alias: "/",
-        name: "Main",
-        component: Main,
-      },
       {
         path: "/settings",
         name: "settings",

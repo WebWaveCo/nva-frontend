@@ -1,6 +1,17 @@
 <template>
   <v-main>
-    <Sidebar />
+    <Sidebar ref="sidebar" class="z-index-over" />
+    <v-btn
+      fixed
+      bottom
+      left
+      class="z-index-under"
+      @click="$refs.sidebar.drawer = !$refs.sidebar.drawer"
+    >
+      <v-icon>{{
+        $refs.sidebar && $refs.sidebar.drawer ? "mdi-close" : "mdi-menu"
+      }}</v-icon>
+    </v-btn>
     <router-view></router-view>
   </v-main>
 </template>
@@ -13,8 +24,15 @@ export default {
   components: {
     Sidebar,
   },
-  data: () => ({
-    drawer: true,
-  }),
 };
 </script>
+
+<style scoped>
+.z-index-over {
+  z-index: 1001; /* Ajusta este valor según tus necesidades */
+}
+
+.z-index-under {
+  z-index: 1000; /* Ajusta este valor según tus necesidades */
+}
+</style>

@@ -1,19 +1,21 @@
 <template>
   <v-navigation-drawer
+    v-model="drawer"
     :mini-variant="mini"
     mini-variant-width="120"
     width="240"
-    permanent
     app
+    overlay
   >
     <!-- Profile -->
     <v-list nav>
-      <div class="mx-5 my-2 d-flex justify-center align-center flex-column">
+      <div class="mx-5 my-5 d-flex justify-center align-center flex-column">
         <v-img
           max-height="60px"
           max-width="60px"
           src="@/assets/logo-sidebar.png"
           alt=""
+          class="mb-2"
         />
         <h3
           class="text-center font-weight-light text-subtitle-1 mb-2"
@@ -24,9 +26,11 @@
         </h3>
       </div>
       <v-list-item
-        style="background-color: blue"
+        style="background-color: #2b58e2"
         :class="mini ? 'mx-5' : 'mx-7'"
+        to="/settings"
         link
+        active-class="active-class-profile"
       >
         <v-list-item-icon>
           <v-icon dark large>mdi-account-cog-outline</v-icon>
@@ -128,6 +132,7 @@ export default {
         { title: "Team", icon: "mdi-account-group-outline" },
         { title: "Files", icon: "mdi-folder-open-outline" },
       ],
+      drawer: true,
       mini: true,
       selectedItem: 0,
     };
@@ -147,6 +152,9 @@ export default {
 </script>
 
 <style scoped>
+.active-class-profile {
+  color: white !important;
+}
 .active-class {
   background-color: black !important;
   color: white !important;
