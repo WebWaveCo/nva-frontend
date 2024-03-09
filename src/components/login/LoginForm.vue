@@ -2,7 +2,7 @@
   <v-container class="login-form-container">
     <img style="max-width: 80%" src="@/assets/logo.svg" alt="Logo" />
 
-    <p class="text-center mt-10 mb-6" style="font-size: 30px">
+    <p class="text-center mt-10 mb-6" style="font-size: 30px; line-height: 1.2">
       Our interest is
       <br />
       your interest.
@@ -33,7 +33,7 @@
           class="login-button"
           @click="login"
           :disabled="!valid"
-          large
+          x-large
           block
         >
           Sign in
@@ -68,16 +68,20 @@ export default {
             password: this.password,
             remember: this.rememberMe,
           };
+          this.valid = false;
           const response = await user.login(data);
           if (response.meta.code === 200) {
+            this.valid = true;
             const token = response.response.user.authentication_token;
             localStorage.setItem("authToken", token);
             this.$router.push({ name: "Home" });
           } else {
             this.loginError = "Invalid password or email.";
+            this.valid = true;
           }
         } catch (error) {
           this.loginError = "Sign in failed. Please try again.";
+          this.valid = true;
         }
       }
     },
@@ -93,12 +97,19 @@ export default {
   background-color: white;
   border-radius: 10px;
   height: 100%;
-  padding: 15%;
+  padding: 15% 5%;
+}
+
+@media (min-width: 992px) {
+  .login-form-container {
+    padding: 15%;
+  }
 }
 
 .login-button {
-  background-color: black !important;
+  background-color: #2b2c30 !important;
   color: white !important;
+  text-transform: none;
 }
 
 .login-button:disabled {

@@ -31,8 +31,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async authenticateAndLoadUser({ commit }) {
-      commit("setLoading", true);
+    async authenticateAndLoadUser({ commit }, isLoggingIn) {
+      if (isLoggingIn) {
+        commit("setLoading", true);
+      }
       try {
         const response = await api.fetchUser();
         if (response.code == 200) {
@@ -45,7 +47,9 @@ export default new Vuex.Store({
         commit("resetState");
         throw error;
       } finally {
-        commit("setLoading", false);
+        if (isLoggingIn) {
+          commit("setLoading", false);
+        }
       }
     },
   },

@@ -39,8 +39,22 @@ async function fetchUser() {
   return data;
 }
 
+async function updateUser(userInformation) {
+  const response = await fetch(`${config.apiUrl}/v1/accounts/user`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authentication-Token": config.getToken(),
+    },
+    body: JSON.stringify(userInformation),
+  });
+  const data = await response.json();
+  return data;
+}
+
 export default {
   login,
   logout,
   fetchUser,
+  updateUser,
 };

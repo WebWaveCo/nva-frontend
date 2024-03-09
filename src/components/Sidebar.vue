@@ -129,7 +129,7 @@ export default {
       items: [
         { title: "Dashboard", icon: "mdi-view-dashboard-outline" },
         { title: "History", icon: "mdi-text-box-search-outline" },
-        { title: "Team", icon: "mdi-account-group-outline" },
+        { title: "Team", icon: "mdi-account-hard-hat-outline" },
         { title: "Files", icon: "mdi-folder-open-outline" },
       ],
       drawer: true,

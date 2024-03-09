@@ -3,7 +3,7 @@
     <Sidebar ref="sidebar" class="z-index-over" />
     <v-btn
       fixed
-      bottom
+      top
       left
       class="z-index-under"
       @click="$refs.sidebar.drawer = !$refs.sidebar.drawer"

@@ -49,7 +49,7 @@ export default {
   height: auto;
   width: 90vw;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 11px;
   overflow: hidden;
 }
 
@@ -84,7 +84,7 @@ export default {
   }
 }
 
-@media (min-width: 992) {
+@media (min-width: 992px) {
   .login-card {
     width: 70dvw;
   }

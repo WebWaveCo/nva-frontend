@@ -9,16 +9,28 @@
         <UserProfileCard @edit="toggleEdit"></UserProfileCard>
       </v-col>
       <v-col cols="12" md="6">
-        <UserInformationCard :valid="valid"></UserInformationCard>
+        <UserInformationCard
+          :valid="valid"
+          @alert="activeAlert"
+        ></UserInformationCard>
       </v-col>
       <v-col cols="12" md="6">
-        <PasswordResetCard :valid="valid"></PasswordResetCard>
+        <PasswordResetCard
+          :valid="valid"
+          @alert="activeAlert"
+        ></PasswordResetCard>
       </v-col>
-      <v-col cols="12" md="6">
-        <JobInformationCard :valid="valid"></JobInformationCard>
+      <v-col cols="12" md="12">
+        <JobInformationCard
+          :valid="valid"
+          @alert="activeAlert"
+        ></JobInformationCard>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" v-if="false">
         <PasswordChangeNoticeCard></PasswordChangeNoticeCard>
+      </v-col>
+      <v-col v-if="alerMessage" cols="12" md="4">
+        <v-alert :type="alertStatus">{{ alerMessage }}</v-alert>
       </v-col>
     </v-row>
   </v-container>
@@ -42,10 +54,20 @@ export default {
   },
   data: () => ({
     valid: false,
+    alerMessage: "",
+    alertStatus: "",
   }),
   methods: {
     toggleEdit() {
       this.valid = !this.valid;
+    },
+    activeAlert(data) {
+      this.alerMessage = data.message;
+      this.alertStatus = data.status;
+      setTimeout(() => {
+        this.alerMessage = "";
+        this.alertStatus = "";
+      }, 5000);
     },
   },
 };

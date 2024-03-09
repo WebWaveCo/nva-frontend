@@ -45,7 +45,7 @@ router.beforeEach(async (to, from, next) => {
     next({ name: "Login" });
   } else if (requiresAuth && isAuthenticated && !store.getters.isUserLoaded) {
     try {
-      await store.dispatch("authenticateAndLoadUser");
+      await store.dispatch("authenticateAndLoadUser", true);
       next();
     } catch (error) {
       next({ name: "Login" });
