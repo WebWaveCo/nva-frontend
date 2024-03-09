@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-4 d-flex flex-column" height="100%">
+  <v-card class="pa-4 d-flex flex-column" height="100%" elevation="0">
     <v-card-title class="text-h6 font-weight-light pl-0"
       >Job Information</v-card-title
     >

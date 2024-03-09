@@ -1,9 +1,10 @@
 <template>
-  <v-card class="pa-4 d-flex flex-column" height="100%">
+  <v-card class="pa-4 d-flex flex-column" height="100%" elevation="0">
     <v-card-title class="text-h6 font-weight-light pl-0"
       >Reset Password</v-card-title
     >
     <v-form
+      ref="form"
       class="mb-0 flex-grow-1 d-flex flex-column"
       v-model="validForm"
       :disabled="!valid"
@@ -91,6 +92,7 @@ export default {
         this.$emit("alert", dataAlert);
       } finally {
         this.validForm = true;
+        this.$refs.form.reset();
       }
     },
   },

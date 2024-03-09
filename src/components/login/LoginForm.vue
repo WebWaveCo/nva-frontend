@@ -74,7 +74,7 @@ export default {
             this.valid = true;
             const token = response.response.user.authentication_token;
             localStorage.setItem("authToken", token);
-            this.$router.push({ name: "Home" });
+            this.$router.push({ name: "Dashboard" });
           } else {
             this.loginError = "Invalid password or email.";
             this.valid = true;

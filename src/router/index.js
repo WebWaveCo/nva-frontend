@@ -2,8 +2,13 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/store";
 // Dashboard
-import Dashboard from "../views/Dashboard.vue";
+import Main from "../views/Main.vue";
 import Profile from "@/components/users/Profile.vue";
+import Project from "@/components/projects/Project.vue";
+import Dasboard from "@/components/dashboard/Dasboard.vue";
+import History from "@/components/history/History.vue";
+import Team from "@/components/team/Team.vue";
+import files from "@/components/files/Files.vue";
 
 // auth
 import Login from "@/views/Login.vue";
@@ -13,13 +18,39 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Dashboard,
+    name: "Main",
+    component: Main,
     children: [
       {
         path: "/settings",
-        name: "settings",
+        name: "Settings",
         component: Profile,
+      },
+      {
+        path: "/project",
+        name: "Project",
+        component: Project,
+      },
+      {
+        path: "/dashboard",
+        alias: "/",
+        name: "Dashboard",
+        component: Dasboard,
+      },
+      {
+        path: "/history",
+        name: "History",
+        component: History,
+      },
+      {
+        path: "/team",
+        name: "Team",
+        component: Team,
+      },
+      {
+        path: "/files",
+        name: "Files",
+        component: files,
       },
     ],
     meta: { requiresAuth: true },
@@ -51,7 +82,7 @@ router.beforeEach(async (to, from, next) => {
       next({ name: "Login" });
     }
   } else if (!requiresAuth && isAuthenticated) {
-    next({ name: "Home" });
+    next({ name: "Main" });
   } else {
     next();
   }
