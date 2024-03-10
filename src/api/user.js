@@ -27,6 +27,19 @@ async function logout() {
   return data;
 }
 
+async function createUser(user) {
+  const response = await fetch(`${config.apiUrl}/v1/accounts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authentication-Token": config.getToken(),
+    },
+    body: JSON.stringify(user),
+  });
+  const data = await response.json();
+  return data;
+}
+
 async function fetchUser() {
   const response = await fetch(`${config.apiUrl}/v1/accounts/user`, {
     method: "GET",
@@ -55,6 +68,7 @@ async function updateUser(userInformation) {
 export default {
   login,
   logout,
+  createUser,
   fetchUser,
   updateUser,
 };

@@ -31,6 +31,7 @@
               fab
               dark
               color="yellow darken-2"
+              @click="$router.push({ name: 'RegisterMemberTeam' })"
             >
               <v-icon dark> mdi-plus </v-icon>
             </v-btn>
@@ -41,7 +42,6 @@
         </v-row>
       </v-card-title>
       <v-data-table
-        item-class="no-border"
         style="width: 100%"
         height="100%"
         :headers="headers"

@@ -8,6 +8,7 @@ import Project from "@/components/projects/Project.vue";
 import Dasboard from "@/components/dashboard/Dasboard.vue";
 import History from "@/components/history/History.vue";
 import Team from "@/components/team/Team.vue";
+import RegisterMemberTeam from "@/components/team/RegisterMemberTeam.vue";
 import files from "@/components/files/Files.vue";
 
 // auth
@@ -46,6 +47,11 @@ const routes = [
         path: "/team",
         name: "Team",
         component: Team,
+      },
+      {
+        path: "/team/register",
+        name: "RegisterMemberTeam",
+        component: RegisterMemberTeam,
       },
       {
         path: "/files",
