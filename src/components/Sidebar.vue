@@ -215,4 +215,8 @@ export default {
   background-color: black !important;
   color: white !important;
 }
+
+.v-navigation-drawer--mini-variant .v-list-item > *:first-child {
+  margin-right: 0;
+}
 </style>
