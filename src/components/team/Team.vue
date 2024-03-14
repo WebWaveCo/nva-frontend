@@ -9,7 +9,7 @@
       min-width="95%"
       elevation="0"
     >
-      <v-card-title style="width: 100%" class="pa-7">
+      <v-card-title style="width: 100%" class="px-10 py-7">
         <v-row>
           <v-col cols="4">
             <v-text-field
@@ -43,14 +43,13 @@
       </v-card-title>
       <v-data-table
         style="width: 100%"
-        height="100%"
+        height="75vh"
         :headers="headers"
         :items="desserts"
         :search="search"
         :page.sync="page"
         :items-per-page="itemsPerPage"
         hide-default-footer
-        separator="none"
         @page-count="pageCount = $event"
       ></v-data-table>
       <div class="text-center py-5">
@@ -106,4 +105,25 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+table tbody tr td {
+  border: none !important;
+  padding: 2rem 1rem !important;
+}
+table tbody tr td:first-child,
+table thead tr th:first-child {
+  padding-left: 3rem !important;
+}
+table tbody tr td:last-child,
+table thead tr th:last-child {
+  padding-right: 3rem !important;
+}
+.theme--light.v-data-table
+  > .v-data-table__wrapper
+  > table
+  > thead
+  > tr:last-child
+  > th {
+  border-top: thin solid rgba(0, 0, 0, 0.12);
+}
+</style>

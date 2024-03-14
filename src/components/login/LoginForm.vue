@@ -9,7 +9,7 @@
     </p>
 
     <v-card-text>
-      <v-form ref="form" v-model="valid" lazy-validation>
+      <v-form ref="form" v-model="valid" lazy-validation @submit="login">
         <v-text-field
           v-model="email"
           :rules="[rules.required, rules.email]"
@@ -30,8 +30,8 @@
           {{ loginError }}
         </v-alert>
         <v-btn
+          type="submit"
           class="login-button"
-          @click="login"
           :disabled="!valid"
           x-large
           block
@@ -60,7 +60,8 @@ export default {
     },
   }),
   methods: {
-    async login() {
+    async login(e) {
+      e.preventDefault();
       if (this.$refs.form.validate()) {
         try {
           const data = {
