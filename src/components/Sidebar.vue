@@ -45,7 +45,12 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item :class="mini ? 'mx-5' : 'mx-7'" to="/project" link>
+      <v-list-item
+        v-if="$store.getters.getUser.role != 'superuser'"
+        :class="mini ? 'mx-5' : 'mx-7'"
+        to="/project"
+        link
+      >
         <v-tooltip color="black" right :disabled="!mini">
           <template v-slot:activator="{ on, attrs }">
             <v-list-item-icon class="mr-2" v-bind="attrs" v-on="on">
@@ -70,7 +75,7 @@
     <v-list nav class="mt-7">
       <v-list-item-group v-model="selectedItem" active-class="active-class">
         <v-list-item
-          v-for="item in items"
+          v-for="item in visibleItems"
           :key="item.title"
           :class="mini ? 'mx-5' : 'mx-7'"
           :to="item.path"
@@ -152,14 +157,30 @@ export default {
   data() {
     return {
       items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard-outline", path: "/" },
+        {
+          title: "Dashboard",
+          icon: "mdi-view-dashboard-outline",
+          path: "/",
+          roles: ["company-admin", "company-user"],
+        },
         {
           title: "History",
           icon: "mdi-text-box-search-outline",
           path: "/history",
+          roles: ["company-admin", "company-user"],
         },
-        { title: "Team", icon: "mdi-account-hard-hat-outline", path: "/team" },
-        { title: "Files", icon: "mdi-folder-open-outline", path: "/files" },
+        {
+          title: "Team",
+          icon: "mdi-account-hard-hat-outline",
+          path: "/team",
+          roles: ["company-admin", "superuser"],
+        },
+        {
+          title: "Files",
+          icon: "mdi-folder-open-outline",
+          path: "/files",
+          roles: ["company-admin", "company-user"],
+        },
       ],
       drawer: true,
       mini: true,
@@ -175,6 +196,12 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+  },
+  computed: {
+    visibleItems() {
+      const userRole = this.$store.getters.getUser.role;
+      return this.items.filter((item) => item.roles.includes(userRole));
     },
   },
 };
