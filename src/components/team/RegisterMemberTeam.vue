@@ -85,16 +85,14 @@
       >
         <v-img
           v-if="isProcessOk"
-          class="mb-8"
+          class="mb-6"
           src="@/assets/aproved.png"
         ></v-img>
-        <v-img v-else class="mb-8" src="@/assets/failed.png"></v-img>
+        <!-- <v-img v-else class="mb-6" src="@/assets/failed.png"></v-img> -->
 
         <div v-if="isProcessOk">
           <p>
-            The account has been created. For confirmation and to use it, you
-            will receive an email asking you to confirm your registration in
-            order to proceed to access the platform.
+            The account has been created.
           </p>
           <v-btn class="edit-button" @click="isProcessFinished = false"
             >Create another account</v-btn
@@ -108,7 +106,7 @@
         </div>
 
         <div v-else>
-          <p>Account creation failed</p>
+          <p>Account creation failed.</p>
           <v-btn class="edit-button" @click="isProcessFinished = false"
             >Try again</v-btn
           >
