@@ -177,7 +177,7 @@ export default {
           const data = {
             email: this.email,
             entry_date: this.date,
-            job_title: this.job_title,
+            job_title: this.jobTitle,
             name: this.name,
             phone: this.phone,
             password: this.password,

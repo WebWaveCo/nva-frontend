@@ -28,7 +28,7 @@ async function logout() {
 }
 
 async function createUser(user) {
-  const response = await fetch(`${config.apiUrl}/v1/accounts`, {
+  const response = await fetch(`${config.apiUrl}/v1/accounts/user`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
