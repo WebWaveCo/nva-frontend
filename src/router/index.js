@@ -8,6 +8,7 @@ import NewProject from "@/components/projects/NewProject.vue";
 import CustomerInformation from "@/components/projects/cards/CustomerInformation.vue";
 import Dasboard from "@/components/dashboard/Dasboard.vue";
 import History from "@/components/history/History.vue";
+import HistoryFullView from "@/components/history/HistoryFullView.vue";
 import Team from "@/components/team/Team.vue";
 import RegisterMemberTeam from "@/components/team/RegisterMemberTeam.vue";
 import files from "@/components/files/Files.vue";
@@ -48,6 +49,11 @@ const routes = [
         path: "/history",
         name: "History",
         component: History,
+      },
+      {
+        path: "/history/:id",
+        name: "HistoryFullView",
+        component: HistoryFullView,
       },
       {
         path: "/team",
