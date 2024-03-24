@@ -3,7 +3,9 @@
     <v-overlay :value="loading">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </v-app>
 </template>
 

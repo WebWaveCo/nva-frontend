@@ -1,7 +1,7 @@
 import config from "./index";
 
 async function fetchTeam() {
-  const response = await fetch(`${config.apiUrl}/v1/accounts/team`, {
+  const response = await fetch(`${config.apiUrl}/v1/team`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -13,7 +13,7 @@ async function fetchTeam() {
 }
 
 async function updateTeamMember(userTeamInformation) {
-  const response = await fetch(`${config.apiUrl}/v1/accounts/team`, {
+  const response = await fetch(`${config.apiUrl}/v1/team`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

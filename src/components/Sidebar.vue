@@ -48,7 +48,7 @@
       <v-list-item
         v-if="$store.getters.getUser.role != 'superuser'"
         :class="mini ? 'mx-5' : 'mx-7'"
-        to="/project"
+        to="/newproject"
         link
       >
         <v-tooltip color="black" right :disabled="!mini">

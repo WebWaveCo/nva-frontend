@@ -6,6 +6,12 @@ Vue.use(Vuex);
 
 const initialState = {
   user: {},
+  newProject: {
+    customerUpload: false,
+    scopeUpload: false,
+    estimateUpload: false,
+    documentsUpload: false,
+  },
   userLoaded: false,
   loading: false,
 };
@@ -16,6 +22,7 @@ export default new Vuex.Store({
     getUser: (state) => state.user,
     isUserLoaded: (state) => state.userLoaded,
     isLoading: (state) => state.loading,
+    getNewProject: (state) => state.newProject,
   },
   mutations: {
     setUser(state, user) {
@@ -24,6 +31,26 @@ export default new Vuex.Store({
     },
     setLoading(state, loading) {
       state.loading = loading;
+    },
+    setCustomerUpload(state, value) {
+      state.newProject.customerUpload = value;
+    },
+    setScopeUpload(state, value) {
+      state.newProject.scopeUpload = value;
+    },
+    setEstimateUpload(state, value) {
+      state.newProject.estimateUpload = value;
+    },
+    setDocumentsUpload(state, value) {
+      state.newProject.documentsUpload = value;
+    },
+    resetNewProject(state) {
+      state.newProject = {
+        customerUpload: false,
+        scopeUpload: false,
+        estimateUpload: false,
+        documentsUpload: false,
+      };
     },
     resetState(state) {
       localStorage.removeItem("authToken");

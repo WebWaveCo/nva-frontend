@@ -12,7 +12,9 @@
         $refs.sidebar && $refs.sidebar.drawer ? "mdi-close" : "mdi-menu"
       }}</v-icon>
     </v-btn>
-    <router-view></router-view>
+    <KeepAlive>
+      <router-view />
+    </KeepAlive>
   </v-main>
 </template>
 

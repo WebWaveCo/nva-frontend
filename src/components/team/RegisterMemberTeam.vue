@@ -91,9 +91,7 @@
         <!-- <v-img v-else class="mb-6" src="@/assets/failed.png"></v-img> -->
 
         <div v-if="isProcessOk">
-          <p>
-            The account has been created.
-          </p>
+          <p>The account has been created.</p>
           <v-btn class="edit-button" @click="isProcessFinished = false"
             >Create another account</v-btn
           >

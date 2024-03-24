@@ -4,7 +4,8 @@ import store from "@/store";
 // Dashboard
 import Main from "../views/Main.vue";
 import Profile from "@/components/users/Profile.vue";
-import Project from "@/components/projects/Project.vue";
+import NewProject from "@/components/projects/NewProject.vue";
+import CustomerInformation from "@/components/projects/cards/CustomerInformation.vue";
 import Dasboard from "@/components/dashboard/Dasboard.vue";
 import History from "@/components/history/History.vue";
 import Team from "@/components/team/Team.vue";
@@ -28,9 +29,14 @@ const routes = [
         component: Profile,
       },
       {
-        path: "/project",
-        name: "Project",
-        component: Project,
+        path: "/newproject",
+        name: "NewProject",
+        component: NewProject,
+      },
+      {
+        path: "/newproject/:id/custumer",
+        name: "CustomerInformation",
+        component: CustomerInformation,
       },
       {
         path: "/dashboard",
