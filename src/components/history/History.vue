@@ -101,9 +101,11 @@ export default {
 </script>
 
 <style scoped>
-.chip {
-  min-width: 85px !important;
-  display: flex;
-  justify-content: center;
+@media (min-width: 760px) {
+  .chip {
+    min-width: 85px !important;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
